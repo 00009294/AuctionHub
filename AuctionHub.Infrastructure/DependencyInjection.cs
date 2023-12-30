@@ -1,4 +1,6 @@
-﻿using AuctionHub.Infrastructure.Persistence;
+﻿using AuctionHub.Domain.Entities;
+using AuctionHub.Domain.Enums;
+using AuctionHub.Infrastructure.Persistence;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -12,13 +14,15 @@ namespace AuctionHub.Infrastructure
         {
             services.AddDbContext<DataContext>(options =>
             {
-                options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"));
+                options.UseSqlServer(configuration.GetConnectionString("DefaultConnection") ??
+                    throw new InvalidOperationException("Connection String is not found"));
             });
 
-            services.AddAuthorization();
 
-            services.AddIdentityApiEndpoints<IdentityUser>()
-                .AddEntityFrameworkStores<DataContext>();
+            services.AddIdentityApiEndpoints<User>()
+                .AddEntityFrameworkStores<DataContext>()
+                .AddSignInManager();
+            
 
 
             return services;

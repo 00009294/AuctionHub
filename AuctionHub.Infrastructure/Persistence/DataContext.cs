@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using AuctionHub.Domain.Entities;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace AuctionHub.Infrastructure.Persistence
@@ -9,5 +10,6 @@ namespace AuctionHub.Infrastructure.Persistence
         {
         
         }
+        public DbSet<User> Users {  get; set; }
     }
 }

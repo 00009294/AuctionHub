@@ -1,3 +1,4 @@
+using AuctionHub.Domain.Entities;
 using AuctionHub.Infrastructure;
 using Microsoft.AspNetCore.Identity;
 
@@ -6,7 +7,7 @@ namespace AuctionHub.API
 {
     public class Program
     {
-        public static async Task Main(string[] args)
+        public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
 
@@ -26,7 +27,7 @@ namespace AuctionHub.API
                 app.UseSwaggerUI();
             }
 
-            app.MapIdentityApi<IdentityUser>();
+            app.MapIdentityApi<User>();
 
             app.UseHttpsRedirection();
 
