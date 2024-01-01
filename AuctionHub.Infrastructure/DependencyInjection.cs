@@ -1,5 +1,4 @@
 ﻿using AuctionHub.Domain.Entities;
-using AuctionHub.Domain.Enums;
 using AuctionHub.Infrastructure.Persistence;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -22,7 +21,7 @@ namespace AuctionHub.Infrastructure
             services.AddIdentityApiEndpoints<User>()
                 .AddEntityFrameworkStores<DataContext>()
                 .AddSignInManager();
-            
+
 
 
             return services;

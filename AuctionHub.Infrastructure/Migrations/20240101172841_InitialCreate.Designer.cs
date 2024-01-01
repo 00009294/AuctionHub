@@ -4,6 +4,7 @@ using AuctionHub.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AuctionHub.Infrastructure.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20240101172841_InitialCreate")]
+    partial class InitialCreate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -58,7 +61,13 @@ namespace AuctionHub.Infrastructure.Migrations
                     b.Property<int>("Category")
                         .HasColumnType("int");
 
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
+
                     b.Property<int>("Currency")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CurrencyId")
                         .HasColumnType("int");
 
                     b.Property<double>("CurrentPrice")
@@ -82,7 +91,13 @@ namespace AuctionHub.Infrastructure.Migrations
                     b.Property<int>("Location")
                         .HasColumnType("int");
 
+                    b.Property<int>("LocationId")
+                        .HasColumnType("int");
+
                     b.Property<int>("LotStatus")
+                        .HasColumnType("int");
+
+                    b.Property<int>("LotStatusId")
                         .HasColumnType("int");
 
                     b.Property<double>("StartingPrice")

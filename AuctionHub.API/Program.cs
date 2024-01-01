@@ -1,6 +1,5 @@
 using AuctionHub.Domain.Entities;
 using AuctionHub.Infrastructure;
-using Microsoft.AspNetCore.Identity;
 
 
 namespace AuctionHub.API
