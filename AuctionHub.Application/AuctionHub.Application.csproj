@@ -10,4 +10,16 @@
     <ProjectReference Include="..\AuctionHub.Domain\AuctionHub.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="UseCases\Bid\Commands\" />
+    <Folder Include="UseCases\Bid\CommandHandlers\" />
+    <Folder Include="UseCases\Bid\QueryHandlers\" />
+    <Folder Include="UseCases\Bid\Queries\" />
+    <Folder Include="UseCases\Lot\Commands\" />
+    <Folder Include="UseCases\Lot\CommandHandlers\" />
+    <Folder Include="UseCases\Lot\QueryHandlers\" />
+    <Folder Include="UseCases\Lot\Queries\" />
+    <Folder Include="UseCases\" />
+  </ItemGroup>
+
 </Project>

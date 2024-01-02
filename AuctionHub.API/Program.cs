@@ -1,6 +1,5 @@
+using AuctionHub.API.Configurations;
 using AuctionHub.Domain.Entities;
-using AuctionHub.Infrastructure;
-
 
 namespace AuctionHub.API
 {
@@ -10,7 +9,8 @@ namespace AuctionHub.API
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            builder.Services.AddInfrastructure(builder.Configuration);
+            // Add all configurations of dependency injection
+            builder.Services.AddAllConfigurations(builder.Configuration);
 
             // Add services to the container.
 
@@ -27,13 +27,9 @@ namespace AuctionHub.API
             }
 
             app.MapIdentityApi<User>();
-
             app.UseHttpsRedirection();
-
             app.UseAuthorization();
-
             app.MapControllers();
-
             app.Run();
         }
     }

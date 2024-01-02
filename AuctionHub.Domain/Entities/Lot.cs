@@ -10,6 +10,7 @@ namespace AuctionHub.Domain.Entities
         public string Description { get; set; } = String.Empty;
         public double StartingPrice { get; set; }
         public double CurrentPrice { get; set; }
+        public double Deposit { get; set; }
         public string ImageURL { get; set; } = String.Empty;
         public DateTime ExpirationTime { get; set; }
 
@@ -19,9 +20,9 @@ namespace AuctionHub.Domain.Entities
         public Location Location { get; set; }
 
         [ForeignKey("UserId")]
-        public User User { get; set; }
+        public User User { get; set; } = new User();
         public Guid UserId { get; set; }
 
-        public ICollection<Bid> Bids { get; set; }
+        public ICollection<Bid> Bids { get; set; } = new List<Bid>();
     }
 }
