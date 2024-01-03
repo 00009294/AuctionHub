@@ -34,6 +34,11 @@ namespace AuctionHub.Infrastructure.Persistence
                 .HasOne(l => l.User)
                 .WithMany()
                 .HasForeignKey(l => l.UserId);
+
+            modelBuilder.Entity<Lot>()
+                .HasOne(l => l.User)
+                .WithMany()
+                .HasForeignKey(l => l.WinnerId);
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

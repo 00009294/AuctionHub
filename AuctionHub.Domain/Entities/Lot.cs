@@ -22,6 +22,7 @@ namespace AuctionHub.Domain.Entities
         [ForeignKey("UserId")]
         public User User { get; set; } = new User();
         public Guid UserId { get; set; }
+        public Guid WinnerId { get; set; }
 
         public ICollection<Bid> Bids { get; set; } = new List<Bid>();
     }
