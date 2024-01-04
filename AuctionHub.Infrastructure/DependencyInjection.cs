@@ -1,5 +1,7 @@
-﻿using AuctionHub.Domain.Entities;
+﻿using AuctionHub.Application.Abstraction.Interfaces;
+using AuctionHub.Domain.Entities;
 using AuctionHub.Infrastructure.Persistence;
+using AuctionHub.Infrastructure.Repositories;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -11,6 +13,9 @@ namespace AuctionHub.Infrastructure
     {
         public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
+            services.AddScoped<ILotRepository, LotRepository>();
+            services.AddScoped<IBidRepository, BidRepository>();
+
             services.AddDbContext<DataContext>(options =>
             {
                 options.UseSqlServer(configuration.GetConnectionString("DefaultConnection") ??

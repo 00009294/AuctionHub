@@ -23,9 +23,9 @@ namespace AuctionHub.Application.UseCases.Lot.Models
         [DataType(DataType.Currency)]
         [Range(0, double.MaxValue, ErrorMessage = "Starting price must be a non-negative value")]
         public double StartingPrice { get; set; }
+        public double CurrentPrice { get; set; }
+        public bool NextPrice { get; set; }
         
-        
-        [Required]
         public string ImageURL { get; set; } = String.Empty;
 
         [Required]

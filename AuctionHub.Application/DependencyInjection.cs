@@ -1,4 +1,8 @@
-﻿using AuctionHub.Application.Helpers;
+﻿using AuctionHub.Application.Abstraction.Interfaces;
+using AuctionHub.Application.Helpers;
+using AuctionHub.Application.UseCases.Lot.CommandHandlers;
+using AuctionHub.Application.UseCases.Lot.Models;
+using AuctionHub.Application.Validation.Lot;
 using FluentValidation;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -10,8 +14,9 @@ namespace AuctionHub.Application
     {
         public static IServiceCollection AddApplication(this IServiceCollection services)
         {
+            services.AddScoped<ILotValidationService, LotValidationService>();
+            services.AddScoped<LotModel>();
             services.AddMediatR(configuration=>configuration.RegisterServicesFromAssemblies(Assembly.GetExecutingAssembly()));
-            
             services.AddAutoMapper(typeof(MappingProfile));
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
             return services;
