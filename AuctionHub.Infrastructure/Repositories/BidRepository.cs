@@ -16,7 +16,7 @@ namespace AuctionHub.Infrastructure.Repositories
         {
             try
             {
-                if(bid != null)
+                if (bid != null)
                 {
                     this.dataContext.Bids.Add(bid);
                 }

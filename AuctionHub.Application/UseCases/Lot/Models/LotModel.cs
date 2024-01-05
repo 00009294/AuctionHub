@@ -1,19 +1,12 @@
-﻿using AuctionHub.Domain.Entities;
-using AuctionHub.Domain.Enums;
-using System;
-using System.Collections.Generic;
+﻿using AuctionHub.Domain.Enums;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AuctionHub.Application.UseCases.Lot.Models
 {
     public class LotModel
     {
 
-        [Required(ErrorMessage ="Item name is required")]
+        [Required(ErrorMessage = "Item name is required")]
         [StringLength(15)]
         public string ItemName { get; set; } = String.Empty;
 
@@ -25,7 +18,7 @@ namespace AuctionHub.Application.UseCases.Lot.Models
         public double StartingPrice { get; set; }
         public double CurrentPrice { get; set; }
         public bool NextPrice { get; set; }
-        
+
         public string ImageURL { get; set; } = String.Empty;
 
         [Required]

@@ -1,6 +1,5 @@
 ﻿using AuctionHub.Application.Abstraction.Interfaces;
 using AuctionHub.Domain.Entities;
-using AuctionHub.Domain.Enums;
 using AuctionHub.Infrastructure.Persistence;
 
 namespace AuctionHub.Infrastructure.Repositories
@@ -17,7 +16,7 @@ namespace AuctionHub.Infrastructure.Repositories
         {
             try
             {
-                if(entity == null)
+                if (entity == null)
                 {
                     throw new ArgumentNullException();
                 }
@@ -60,7 +59,7 @@ namespace AuctionHub.Infrastructure.Repositories
         }
         public void Update(Guid id, Lot entity)
         {
-           throw new NotImplementedException();
+            throw new NotImplementedException();
         }
 
         public Lot GetByCategory(string category)
