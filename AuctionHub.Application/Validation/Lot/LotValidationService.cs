@@ -24,7 +24,10 @@ namespace AuctionHub.Application.Validation.Lot
             }
 
             // here should be a timer service
+            
             var resultLot = this.mapper.Map<Domain.Entities.Lot>(lotModel);
+            // when timer finishes 
+            resultLot.FinishedPrice = lotModel.CurrentPrice;
             return resultLot;
         }
 

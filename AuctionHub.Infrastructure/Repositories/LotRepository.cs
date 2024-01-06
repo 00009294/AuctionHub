@@ -130,7 +130,7 @@ namespace AuctionHub.Infrastructure.Repositories
             }
         }
 
-        public List<Lot> GetByPrice(double fromPrice, double toPrice)
+        public List<Lot> GetByPrice(double fromPrice)
         {
             try
             {
@@ -138,7 +138,7 @@ namespace AuctionHub.Infrastructure.Repositories
                 List<Lot> selectedLots = new List<Lot>();
                 foreach (var lot in lots)
                 {
-                    if (lot.StartingPrice >= fromPrice || lot.CurrentPrice <= toPrice)
+                    if (lot.StartingPrice >= fromPrice)
                     {
                         selectedLots.Add(lot);
                     }

@@ -5,7 +5,7 @@ namespace AuctionHub.Application.Abstraction.Interfaces
     public interface ILotRepository : IBaseRepository<Lot>
     {
         Lot GetByName(string name);
-        List<Lot> GetByPrice(double fromPrice, double toPrice);
+        List<Lot> GetByPrice(double fromPrice);
         Lot GetByCategory(string category);
         Lot GetByStatus(string status);
         Lot GetByLocation(string location);

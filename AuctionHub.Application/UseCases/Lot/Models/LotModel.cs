@@ -18,7 +18,6 @@ namespace AuctionHub.Application.UseCases.Lot.Models
         public double StartingPrice { get; set; }
         public double CurrentPrice { get; set; }
         public bool NextPrice { get; set; }
-
         public string ImageURL { get; set; } = String.Empty;
 
         [Required]
