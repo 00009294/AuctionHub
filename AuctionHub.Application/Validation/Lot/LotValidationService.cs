@@ -5,21 +5,21 @@ namespace AuctionHub.Application.Validation.Lot
 {
     public class LotValidationService : ILotValidationService
     {
-        private readonly LotModel lotModel;
+        private readonly LotModelDtoForCreation lotModel;
         private readonly IMapper mapper;
         private const int _percentage = 5 / 100;
 
-        public LotValidationService(LotModel lotModel, IMapper mapper)
+        public LotValidationService(LotModelDtoForCreation lotModel, IMapper mapper)
         {
             this.lotModel = lotModel;
             this.mapper = mapper;
         }
 
-        public Domain.Entities.Lot ValidateLot(LotModel lotModel)
+        public Domain.Entities.Lot ValidateLot(LotModelDto lotModel)
         {
             if (lotModel.NextPrice == true)
             {
-                NextPrice(lotModel.StartingPrice, lotModel.CurrentPrice);
+                NextPrice(lotModel.StartingPrice);
                 // plus add 5 minutes to timer
             }
 
@@ -27,17 +27,17 @@ namespace AuctionHub.Application.Validation.Lot
             
             var resultLot = this.mapper.Map<Domain.Entities.Lot>(lotModel);
             // when timer finishes 
-            resultLot.FinishedPrice = lotModel.CurrentPrice;
             return resultLot;
         }
 
-        private static void NextPrice(double startingPrice, double currentPrice)
+        private static void NextPrice(double startingPrice)
         {
-            if (currentPrice == 0)
-            {
-                startingPrice += startingPrice * _percentage;
-            }
-            currentPrice += currentPrice * _percentage;
+            startingPrice += startingPrice * _percentage;
+        }
+
+        public Domain.Entities.Lot ValidateLotForCreation(LotModelDtoForCreation lotModelDtoForCreation)
+        {
+            return this.mapper.Map<Domain.Entities.Lot>(lotModelDtoForCreation);
         }
     }
 }

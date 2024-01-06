@@ -8,7 +8,6 @@ namespace AuctionHub.API.Configurations
     {
         public static IServiceCollection AddAllConfigurations(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddMediatR(configuration => configuration.RegisterServicesFromAssemblies(Assembly.GetExecutingAssembly()));
             services.AddInfrastructure(configuration);
             services.AddApplication();
 

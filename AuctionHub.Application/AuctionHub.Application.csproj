@@ -15,7 +15,6 @@
     <Folder Include="UseCases\Bid\CommandHandlers\" />
     <Folder Include="UseCases\Bid\QueryHandlers\" />
     <Folder Include="UseCases\Bid\Queries\" />
-    <Folder Include="UseCases\Lot\QueryHandlers\" />
   </ItemGroup>
 
   <ItemGroup>

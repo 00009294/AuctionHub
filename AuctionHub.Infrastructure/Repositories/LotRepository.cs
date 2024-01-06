@@ -59,7 +59,24 @@ namespace AuctionHub.Infrastructure.Repositories
         }
         public void Update(Guid id, Lot entity)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var lot = this.dataContext.Lots.FirstOrDefault(l => l.Id == id);
+
+                if (lot == null)
+                {
+                    throw new ArgumentNullException();
+                }
+                this.dataContext.Lots.Update(entity);
+            }
+            catch (Exception)
+            {
+                throw new Exception("Ooops, lot has not updated");
+            }
+            finally
+            {
+                this.dataContext.SaveChanges();
+            }
         }
 
         public Lot GetByCategory(string category)

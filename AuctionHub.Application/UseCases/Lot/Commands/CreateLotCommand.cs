@@ -3,8 +3,8 @@ using MediatR;
 
 namespace AuctionHub.Application.UseCases.Lot.Commands
 {
-    public class CreateLotCommand : IRequest<LotModel>
+    public class CreateLotCommand : IRequest<LotModelDtoForCreation>
     {
-        public LotModel LotModel { get; set; }
+        public LotModelDtoForCreation lotModel { get; set; }
     }
 }
